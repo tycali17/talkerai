@@ -1,0 +1,218 @@
+$p:#40fff2;
+$pw: white;
+.content {
+  // position: relative;
+  // opacity: .75;
+  z-index: 1;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: fit-content;
+  width: 75%;
+  // width: fit-content;
+  // min-height: 82vh;
+  min-height: fit-content;
+  // min-width: 545px;
+  color: white;
+  // border: 1px solid rgba(0, 0, 0, .13);
+   border: 1px solid #38ddd2;
+  // background-color: whitesmoke;
+  // font-size: calc(10px + 2vmin);
+  // background-color: white;
+  // background: rgba(255, 255, 255, .7);
+  // background-color: lavender; // OG light purp: #E4E3F8
+  //background-color:  #282C35;  // og ebony
+  // background-color: rgb(22, 22, 22);
+	// background-color: rgba(22, 22, 22, .7);
+  //background-color: rgb(40, 44, 53, .7); // ebony opacity
+  //background-color: rgb(215, 211, 202, .3); // light opacity
+  //background-color: #f5f5f5;
+  //background-color: rgb(245, 245, 245, .3); //whitesmoke opacity
+  background-color: #40fff275;
+  backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 5px 10px 0 rgba(255, 255, 255, 0.2), 0 7px 22px 0 rgba(255, 255, 255, 0.19);
+  animation-duration: 1s;
+  animation-name: fadein; // even better for stars animation coupling
+  // animation-name: toright; // no topdown, only left/right or fade in
+  overflow: hidden;
+}
+.container {
+  // don't do opacity here...
+  position: relative;
+  z-index: 1; // keep at 1**** to click email input
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 90vh;
+  // min-height: fit-content;
+  min-width: fit-content;
+  // height: 100vh;
+  //background-color:  #282C35;
+  // background-color: rgb(22, 22, 22);
+  //background-color: whitesmoke;
+  background-color: $pw;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  // background-image: url('../../logo.svg');
+  // padding: 20px;
+  min-height: fit-content;
+  overflow: hidden;
+
+}
+.midMessage {
+  margin-top: 20px;
+  margin-bottom: -20px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+}
+.rob {
+  // padding-top: 20px;
+  // padding-right: 20px;
+  // padding-left: 20px;
+  margin: 20px;
+  margin-bottom: 0px;
+  height: 60px;
+  width: 65px;
+  // width: 50px;
+  animation: ato-float infinite 3s ease-in-out;
+}
+.rob2 {
+  margin: 20px;
+  margin-bottom: 0px;
+  height: 60px;
+  width: 65px;
+  animation: ato-rev infinite 3s ease-in-out;
+}
+.conHigh, .conMid, .conLow {
+  position: relative;
+  z-index: 1;
+  // opacity: 1;
+  // z-index: 500;
+  font-size: calc(8px + 4vmin);
+  margin: 5px;
+  // color: white;
+}
+.conHigh, .conMid {
+  display: flex;
+  flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+.conHigh {
+  margin-top: 0;
+}
+.conLow {
+  // display: flex;
+  // flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // width: 75%;
+  // padding-bottom: 30px;
+  margin-bottom: 10px;
+}
+.customize {
+  font-style: italic;
+  // color: aqua;
+  background-color: $p; // backup
+  $l: rgb(17, 236, 145);
+  // color: dodgerblue;
+  background-image: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet); // For Safari
+  background-image: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); // For Opera
+  background-image: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); // For Firefox
+  background-image: linear-gradient(to right, rgb(255, 204, 17), crimson, violet, blue, $l); // rgb(224, 191, 0));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.pitch {
+  color: black;
+  //color: white;
+  font-weight: 600;
+  margin-bottom: -20px;
+  align-items: center;
+  min-width: fit-content;
+}
+.emailForm {
+  position: 'relative';
+  // z-index: 200;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+}
+.hideBot {
+  position: absolute;
+  left: -5000px;
+}
+.heavy, .hF {
+  font-weight: 700;
+  // display: inline;
+  // color: $p;
+  color: $p;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+.hF {
+  margin-top: 25px;
+  margin-bottom: 0px;
+}
+@keyframes topdown {
+  from {
+    margin-bottom: 100%;
+  }
+  to {
+    margin-bottom: inherit;
+  }
+}
+@keyframes toright {
+  from {
+    margin-right: 100%;
+  }
+  to {
+    margin-right: inherit;
+    margin: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  // .rob2 {
+  //   animation: ato-float infinite 3s ease-in-out;
+  // }
+}
+
+@keyframes ato-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes ato-rev {
+  0% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: auto;
+  }
+}

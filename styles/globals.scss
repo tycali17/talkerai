@@ -1,0 +1,200 @@
+@use 'sass:math';
+html,
+body {
+  // display: flex;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    // min-height: 100%;
+    // overflow-x: clip;
+    // background-color: #40fff2;
+    background-color: whitesmoke;
+    // background-color:  #282C35;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* animations */
+
+// $c1: springgreen;
+$c2: rgb(255, 203, 17); // solid gold, #fc1
+$c3: whitesmoke; //white og
+$c1: crimson;
+$c4: violet;
+$c5: cyan;
+$c6: springgreen;
+$cb: black;
+
+$shooting-time: 5000ms; //5
+
+.lineChange {
+  position: absolute; // must be relative for width variation
+  height: 100%;
+  will-change: transform, opacity;
+    z-index: -1000;
+    // width: 100%;
+    // height: 60vh;
+    // content: '';
+    // transform: rotateZ(250deg); // 1/2?
+    
+    // transform: rotateZ(270deg); // due north
+    transform: rotateZ(320deg); // half and half?
+    // width: 800px;
+    // height: 800px;
+    // background-image: url('../../logo.svg');
+    -webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+  //overflow: hidden;
+} ::before {
+  //transform: translateZ(0), rotateZ(360deg);
+}
+.new {
+  opacity: 1;
+}
+
+.line {
+    position: relative;
+    z-index: -1000;
+    // color: ;
+    left: 50%;
+    top: 50%;
+    width: 2px;
+    height: 2px;
+    background: linear-gradient(-45deg, $cb, $cb);
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px $c1);
+    animation:
+    tail $shooting-time ease-in infinite,
+    shooting $shooting-time ease-in infinite;
+    -webkit-animation:
+    tail $shooting-time ease-in infinite,
+    shooting $shooting-time ease-in infinite;
+    // doesn't help lag:
+    //will-change: transform, box-shadow, z-index;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 0;
+    height: 2px;
+    background: linear-gradient(-45deg, $c1, $c1, $c1);
+    transform: translateX(50%) rotateZ(45deg);
+    border-radius: 100%;
+    animation: shining $shooting-time ease-in infinite;  // arrow tilt right
+    -webkit-animation: shining $shooting-time ease-in infinite;  // arrow tilt right
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 0;
+    height: 2px;
+    background: linear-gradient(-45deg, $c1, $c1, $c1);
+    //transform: translateX(50%) rotateZ(45deg);
+    border-radius: 100%;
+    animation: shining $shooting-time ease infinite; // arrow tilt left
+    transform: translateX(50%) rotateZ(-45deg);
+    
+  }
+  @for $i from 1 through 11 {
+    &:nth-child(#{$i}) {
+      //opacity: 1;
+      $delay: random(1000ms) + 0ms;
+      // $delay: random(3499) + 0ms; // incremental dispersal: random(3499) + (too early)
+      top: calc(10% - #{random(1600) - 900px}); // full width variation OG: 999-200, N: 1.7-9
+      left: calc(30% - #{random(1100) - 0px}); //50%. starting point. 300+ brings lower.
+      animation-delay: $delay; // delay between line release
+      opacity: math.div(random(90), 100) - 0.0;
+      
+      
+      &::before,
+      &::after {
+        // animation-delay: $delay; // keeps head from appearing
+      }
+    }
+  }
+}
+
+@keyframes tail {
+  0% {
+    width: 10x;
+    // opacity: 0;
+  }
+  30% {
+    //opacity: 1;
+    width: 45px; // 50 line
+  }
+  90% {
+    width: 20px;
+
+  }
+  100% {
+    opacity: 0.2;
+    width: 5px; // 0
+  }
+}
+@keyframes shining { // head
+  0% {
+    // width: 0;
+    height: 8px;
+    width: 8px;
+    // border-radius: 50%;
+    transform: translateY(-3px);
+    
+  }
+  // 3% {
+  //   opacity: 1;
+  // }
+  
+  // 50% {
+  //   // opacity: 1;
+  //   height: 8px;
+  //   width: 8px;
+  //   // background-color: #bbb;
+  //   border-radius: 50%;
+  //   transform: translateY(-3px);
+  //   // display: inline-block;
+  
+  // }
+  
+  100% {
+    // opacity: 1;
+    
+    border-radius: 50%;
+    transform: translateY(-3px);
+    height: 8px;
+    width: 8px;
+    
+    // width: 0; // not needed, line offscreen
+    // transform: translateY(-1px);
+  }
+}
+
+@keyframes shooting {
+  0% {
+    //opacity: 0;
+    opacity: random(100) / 100 + 0.5;
+    // transform: translateX(0);
+    // transform: translateY(0);
+    transform: translateX(0vw);
+  }
+  // 50% {
+  //   opacity: 1;
+  // }
+  90% {
+    //opacity: 1;
+  }
+  100% {
+    //opacity: 0;
+    transform: translateX(90vw);
+    // transform: translateX(500px); // cover the whole screen   ex: calc(0px * 5%)
+  }
+}

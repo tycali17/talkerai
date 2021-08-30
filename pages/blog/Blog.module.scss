@@ -1,0 +1,65 @@
+.Blog {
+    display: flex;
+    flex-direction: row;
+    min-height: 90vh;
+    // align-items: center;
+    // justify-content: center;
+    width: 100%;
+    // background-color: lavender;
+    // background-color: #E4E3F8; // off-white purple
+    background-color:  #282C35;
+    background-color: whitesmoke;
+    color: black;
+    // color: ;
+    font-size: 30px;
+}
+.tImage {
+    height: 250px;
+    // width: 250px;
+    //margin-bottom: 10px;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    // background-color:  #282C35; //cool dark shade
+    // background-color: black;
+    // color: white;
+    background-color: white;
+    cursor: pointer;
+    // opacity: 0.8;
+    
+    display: flex;
+    flex-direction: column;
+    min-height: fit-content;
+    // min-width: fit-content;
+    height: fit-content;
+    width: 400px;
+    margin-top: 20px;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 7px 22px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 5px 10px 0 rgba(43, 170, 161, 0.8), 0 7px 22px 0 rgba(43, 170, 161, 0.79);
+    // box-shadow: 0 5px 10px 0 rgba(0, 194, 181, .9), 0 7px 22px 0 rgba(0, 194, 181, .39);
+    box-shadow: 0 5px 10px 0 rgba(5, 112, 103, 0.7), 0 7px 22px 0 rgba(5, 112, 103, 0.69);
+}
+.posts:hover {
+    animation: shake 0.08s;
+    animation-iteration-count: 1;
+}
+.pTitle {
+    font-size: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 0px;
+}
+.pDesc {
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    50% { transform: translate(-1px, -1px) rotate(0.5deg); }
+    100% { transform: translate(1px, 1px) rotate(0deg); }
+}

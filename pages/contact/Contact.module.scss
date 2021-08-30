@@ -1,0 +1,36 @@
+.Contact {
+    display: flex;
+    min-height: 90vh;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    // color: #63e;
+    color: white;
+    font-size: calc(10px + 2vmin);
+    // background-color: lavender;
+    color:  #282C35; //ebony
+    background-color: whitesmoke;
+}
+.input {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input textarea {
+    margin-left: 10px;
+}
+.input input {
+    margin-left: 10px;
+}
+.expand {
+    width: 80%;
+    height: 30vh;
+    min-width: 300px;
+    min-height: 100px;
+    padding:5px;
+    font-size:18px,
+    
+}
