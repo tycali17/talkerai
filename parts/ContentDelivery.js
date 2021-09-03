@@ -27,9 +27,15 @@ export async function getEntries () {
   return res; 
 }
 
-export function getEntry(post) {
+export function getEntry(slug) {
 
-  return this.client.getEntry(post);
+  // return this.client.getEntry(post);
+  client.getEntries({
+    content_type: 'post',
+    'fields.slug[match]': slug,
+    include: 1
+    //locale: language,
+ });
 }
   
 //   ContentDelivery.propTypes = {}; // for type checking

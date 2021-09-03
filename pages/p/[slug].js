@@ -43,7 +43,7 @@ P.propTypes = {};
 P.defaultProps = {};
 
 export async function getStaticProps(context) {
-  console.log("slug ID: " + context.params.slug);
+  //console.log("slug ID: " + context.params.slug);
   return {
     props: {slug: context.params.slug}, // will be passed to the page component as props
   }
